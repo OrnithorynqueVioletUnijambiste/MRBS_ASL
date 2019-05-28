@@ -1,1 +1,10 @@
 F:\Taff\prog Louise\Pepe_euh\projet2\ASL\ASL\ASL\bin\Debug\ASL.exe.config
+C:\Users\cecile.seillet\Documents\GitHub\MRBS_ASL\ASL\ASL\bin\Debug\ASL.exe.config
+C:\Users\cecile.seillet\Documents\GitHub\MRBS_ASL\ASL\ASL\obj\Debug\ASL.csprojResolveAssemblyReference.cache
+C:\Users\cecile.seillet\Documents\GitHub\MRBS_ASL\ASL\ASL\obj\Debug\ASL.AssisesSportLorrain.resources
+C:\Users\cecile.seillet\Documents\GitHub\MRBS_ASL\ASL\ASL\obj\Debug\ASL.Properties.Resources.resources
+C:\Users\cecile.seillet\Documents\GitHub\MRBS_ASL\ASL\ASL\obj\Debug\ASL.csproj.GenerateResource.Cache
+C:\Users\cecile.seillet\Documents\GitHub\MRBS_ASL\ASL\ASL\bin\Debug\ASL.exe
+C:\Users\cecile.seillet\Documents\GitHub\MRBS_ASL\ASL\ASL\bin\Debug\ASL.pdb
+C:\Users\cecile.seillet\Documents\GitHub\MRBS_ASL\ASL\ASL\obj\Debug\ASL.exe
+C:\Users\cecile.seillet\Documents\GitHub\MRBS_ASL\ASL\ASL\obj\Debug\ASL.pdb
