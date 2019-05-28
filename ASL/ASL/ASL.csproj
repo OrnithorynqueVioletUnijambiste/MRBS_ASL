@@ -46,14 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Atelier.cs" />
     <Compile Include="AssisesSportLorrain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AssisesSportLorrain.Designer.cs">
       <DependentUpon>AssisesSportLorrain.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAOASL.cs" />
+    <Compile Include="DAOFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Theme.cs" />
     <EmbeddedResource Include="AssisesSportLorrain.resx">
       <DependentUpon>AssisesSportLorrain.cs</DependentUpon>
     </EmbeddedResource>
