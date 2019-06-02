@@ -1,9 +1,10 @@
 F:\Taff\prog Louise\Pepe_euh\projet2\ASL\ASL\ASL\bin\Debug\ASL.exe.config
 F:\Taff\prog Louise\Pepe_euh\projet2\ASL\ASL\ASL\bin\Debug\ASL.exe
 F:\Taff\prog Louise\Pepe_euh\projet2\ASL\ASL\ASL\bin\Debug\ASL.pdb
-F:\Taff\prog Louise\Pepe_euh\projet2\ASL\ASL\ASL\obj\Debug\ASL.csprojResolveAssemblyReference.cache
 F:\Taff\prog Louise\Pepe_euh\projet2\ASL\ASL\ASL\obj\Debug\ASL.AssisesSportLorrain.resources
 F:\Taff\prog Louise\Pepe_euh\projet2\ASL\ASL\ASL\obj\Debug\ASL.Properties.Resources.resources
 F:\Taff\prog Louise\Pepe_euh\projet2\ASL\ASL\ASL\obj\Debug\ASL.csproj.GenerateResource.Cache
 F:\Taff\prog Louise\Pepe_euh\projet2\ASL\ASL\ASL\obj\Debug\ASL.exe
 F:\Taff\prog Louise\Pepe_euh\projet2\ASL\ASL\ASL\obj\Debug\ASL.pdb
+F:\Taff\prog Louise\Pepe_euh\projet2\ASL\ASL\ASL\obj\Debug\ASL.csprojAssemblyReference.cache
+F:\Taff\prog Louise\Pepe_euh\projet2\ASL\ASL\ASL\obj\Debug\ASL.csproj.CoreCompileInputs.cache

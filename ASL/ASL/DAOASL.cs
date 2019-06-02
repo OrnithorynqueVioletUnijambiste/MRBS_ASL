@@ -18,7 +18,7 @@ namespace ASL
         #region Atelier
         public static List<Atelier> getAllAteliers()
         {
-            string requete = "SeLeCt * from Atelier";
+            string requete = "Select * from Atelier";
             DAOFactory dao = new DAOFactory();
             dao.connexion();
             SqlDataReader DataReading = dao.excecSQLread(requete);
