@@ -156,13 +156,12 @@
             // 
             // dtpDateFin
             // 
-            this.dtpDateFin.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+            this.dtpDateFin.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtpDateFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateFin.Location = new System.Drawing.Point(383, 92);
+            this.dtpDateFin.Location = new System.Drawing.Point(366, 95);
             this.dtpDateFin.Name = "dtpDateFin";
-            this.dtpDateFin.Size = new System.Drawing.Size(144, 20);
-            this.dtpDateFin.TabIndex = 12;
-            this.dtpDateFin.ValueChanged += new System.EventHandler(this.dtpDateFin_ValueChanged);
+            this.dtpDateFin.Size = new System.Drawing.Size(154, 20);
+            this.dtpDateFin.TabIndex = 17;
             // 
             // btnModifierAtelier
             // 
@@ -231,13 +230,12 @@
             // 
             // dtpDateDebut
             // 
-            this.dtpDateDebut.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+            this.dtpDateDebut.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtpDateDebut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateDebut.Location = new System.Drawing.Point(383, 48);
+            this.dtpDateDebut.Location = new System.Drawing.Point(366, 48);
             this.dtpDateDebut.Name = "dtpDateDebut";
-            this.dtpDateDebut.Size = new System.Drawing.Size(144, 20);
-            this.dtpDateDebut.TabIndex = 2;
-            this.dtpDateDebut.ValueChanged += new System.EventHandler(this.dtpDateDebut_ValueChanged);
+            this.dtpDateDebut.Size = new System.Drawing.Size(154, 20);
+            this.dtpDateDebut.TabIndex = 18;
             // 
             // tabTheme
             // 

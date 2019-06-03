@@ -15,6 +15,7 @@ namespace ASL
         private DateTime horaireFin;
 
 
+
         public Atelier(int unIdAtelier, string unNomAtelier, int uneCapacite,
             DateTime unDebut, DateTime uneFin)
         {
@@ -25,12 +26,53 @@ namespace ASL
             horaireFin = uneFin;
 
         }
-        public int IdAtelier { get; set; }
-        public string NomAtelier { get; set; }
-        public int Capacite { get; set; }
-        public DateTime HoraireDebut { get; set; }
-        public DateTime HoraireFin { get; set; }
-        
-    }
 
+        public int IdAtelier {
+            get
+            {
+                return idAtelier;
+            }
+        }
+        public string NomAtelier {
+            get
+            {
+                return nomAtelier;
+            }
+            set
+            {
+                nomAtelier = value;
+            }
+        }
+        public int Capacite {
+            get
+            {
+                return capacite;
+            }
+            set
+            {
+                capacite = value;
+            }
+        }
+        public DateTime HoraireDebut {
+            get
+            {
+                return horaireDebut;
+            }
+            set
+            {
+                horaireDebut = value;
+            }
+        }
+        public DateTime HoraireFin {
+            get
+            {
+                return horaireFin;
+            }
+            set
+            {
+                horaireFin = value;
+            }
+        }
+
+    }
 }

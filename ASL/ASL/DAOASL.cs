@@ -26,8 +26,8 @@ namespace ASL
             while (DataReading.Read())
             {
                 Atelier unAtelier = new Atelier(int.Parse(DataReading[0].ToString()), DataReading[1].ToString(),
-                    int.Parse(DataReading[2].ToString()), DateTime.Parse(DataReading[3].ToString()),
-                    DateTime.Parse(DataReading[4].ToString()));
+                    int.Parse(DataReading[2].ToString()), Convert.ToDateTime(DataReading[3]),
+                    Convert.ToDateTime(DataReading[4]));
                 listeAteliers.Add(unAtelier);
             }
             dao.deconnexion();
@@ -47,7 +47,7 @@ namespace ASL
             dao.deconnexion();
         }
 
-        public void modifierAtelier(Atelier unAtelier)
+        public static void modifierAtelier(Atelier unAtelier)
         {
 
             string requete = "Update Atelier "
@@ -63,10 +63,10 @@ namespace ASL
             dao.excecSQLWrite(requete);
             dao.deconnexion();
         }
-        public static void supprimerAtelier(Atelier unAtelier)
+        public static void supprimerAtelier(int unIdAtelier)
         {
             string requete = "Delete from Atelier "
-                           + "Where id = " + unAtelier.IdAtelier;
+                           + "Where id = " + unIdAtelier;
             DAOFactory dao = new DAOFactory();
             dao.connexion();
             dao.excecSQLWrite(requete);
@@ -94,18 +94,18 @@ namespace ASL
             return listeThemes;
         }
 
-        public static void creerTheme(Theme unTheme, Atelier unAtelier)
+        public static void creerTheme(Theme unTheme, int unIdAtelier)
         {
             DAOFactory dao = new DAOFactory();
             dao.connexion();
             string requete = "Insert into Theme"
                            + "values('" + unTheme.Libelle + "', "
-                           + unAtelier.IdAtelier + ")";
+                           + unIdAtelier + ")";
             dao.excecSQLWrite(requete);
             dao.deconnexion();
         }
 
-        public void modifierTheme(Theme unTheme, Atelier unAtelier)
+        public static void modifierTheme(Theme unTheme, Atelier unAtelier)
         {
 
             string requete = "Update Theme "
