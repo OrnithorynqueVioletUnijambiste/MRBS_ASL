@@ -10,13 +10,35 @@ namespace ASL
 
         public Theme(int unIdTheme, string unLibelle)
         {
-            idTheme = unIdTheme;
-            libelle = unLibelle;
+            IdTheme = unIdTheme;
+            Libelle = unLibelle;
 
         }
 
-        public int IdTheme { get; set; }
+        public int IdTheme
+        {
+            get
+            {
+                return idTheme;
+            }
 
-        public string Libelle { get; set; }
+            set
+            {
+                idTheme = value;
+            }
+        }
+
+        public string Libelle
+        {
+            get
+            {
+                return libelle;
+            }
+
+            set
+            {
+                libelle = value;
+            }
+        }
     }
 }

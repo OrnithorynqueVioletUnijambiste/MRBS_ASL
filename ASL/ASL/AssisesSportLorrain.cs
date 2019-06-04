@@ -26,10 +26,12 @@ namespace ASL
             dgvAteliers.DataSource = lesAteliers;
             dgvAteliers.AutoResizeColumns();
 
-            //Chargement Combobox des Ateliers dans Thème
-            cbAtelierAssoc.DataSource = DAOASL.getAllAteliers();
-            cbAtelierAssoc.ValueMember = "idAtelier";
-            cbAtelierAssoc.DisplayMember = "nomAtelier";
+            foreach(Atelier unAtelier in lesAteliers)
+            {
+                cbAtelierAssoc.Items.Add(unAtelier.IdAtelier + ". " + unAtelier.NomAtelier);
+            }
+
+            
         }
 
         #region Atelier
@@ -110,13 +112,15 @@ namespace ASL
 
         private void BtnAjouterTheme_Click(object sender, EventArgs e)
         {
+            int idTheme = Convert.ToInt32(dgvThemes.CurrentRow.Cells[0].Value);
             string nomTheme = txbTheme.Text;
-            int idAtelier = Convert.ToInt32(cbAtelierAssoc.SelectedValue);
+            int index = cbAtelierAssoc.SelectedItem.ToString().IndexOf('.');
+            int id = int.Parse(cbAtelierAssoc.SelectedItem.ToString().Substring(0, index));
             Theme theme = new Theme(1, nomTheme);
-            DAOASL.creerTheme(theme, idAtelier);
+            DAOASL.creerTheme(theme, id);
 
             List<Theme> lesThemes = new List<Theme>();
-            lesThemes = DAOASL.getAllTheme(idAtelier);
+            lesThemes = DAOASL.getAllTheme(id);
             dgvThemes.DataSource = null;
             dgvThemes.DataSource = lesThemes;
             dgvThemes.AutoResizeColumns();
@@ -124,24 +128,43 @@ namespace ASL
 
         private void BtnModifierTheme_Click(object sender, EventArgs e)
         {
+            int idTheme = Convert.ToInt32(dgvThemes.CurrentRow.Cells[0].Value);
+            string nomTheme = txbTheme.Text;
+            Theme theme = new Theme(idTheme, nomTheme);
+            DAOASL.modifierTheme(theme);
+            int index = cbAtelierAssoc.SelectedItem.ToString().IndexOf('.');
+            int id = int.Parse(cbAtelierAssoc.SelectedItem.ToString().Substring(0, index));
+
+            List<Theme> lesThemes = new List<Theme>();
+            lesThemes = DAOASL.getAllTheme(id);
+            dgvThemes.DataSource = null;
+            dgvThemes.DataSource = lesThemes;
+            dgvThemes.AutoResizeColumns();
 
         }
 
         private void BtnSupprimerTheme_Click(object sender, EventArgs e)
         {
-
+            int idTheme = Convert.ToInt32(dgvThemes.CurrentRow.Cells[0].Value);
+            DAOASL.supprimerTheme(idTheme);
+            List<Theme> lesThemes = new List<Theme>();
+            int index = cbAtelierAssoc.SelectedItem.ToString().IndexOf('.');
+            int id = int.Parse(cbAtelierAssoc.SelectedItem.ToString().Substring(0, index));
+            lesThemes = DAOASL.getAllTheme(id);
+            dgvThemes.DataSource = null;
+            dgvThemes.DataSource = lesThemes;
+            dgvThemes.AutoResizeColumns();
         }
 
         private void CbAtelierAssoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            int unIdAtelier = Convert.ToInt32(cbAtelierAssoc?.SelectedValue);
+            int index = cbAtelierAssoc.SelectedItem.ToString().IndexOf('.');
+            int id = int.Parse(cbAtelierAssoc.SelectedItem.ToString().Substring(0, index));
             List<Theme> lesThemes = new List<Theme>();
-            lesThemes = DAOASL.getAllTheme(unIdAtelier);
+            lesThemes = DAOASL.getAllTheme(id);
             dgvThemes.DataSource = null;
             dgvThemes.DataSource = lesThemes;
             dgvThemes.AutoResizeColumns();
-
 
         }
 
