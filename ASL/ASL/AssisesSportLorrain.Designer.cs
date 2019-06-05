@@ -43,7 +43,6 @@
             this.lbAtelier = new System.Windows.Forms.Label();
             this.dgvAteliers = new System.Windows.Forms.DataGridView();
             this.btnAddAtelier = new System.Windows.Forms.Button();
-            this.txbCapacite = new System.Windows.Forms.TextBox();
             this.dtpDateDebut = new System.Windows.Forms.DateTimePicker();
             this.tabTheme = new System.Windows.Forms.TabPage();
             this.lbThemes = new System.Windows.Forms.Label();
@@ -56,11 +55,13 @@
             this.lbTheme = new System.Windows.Forms.Label();
             this.txbTheme = new System.Windows.Forms.TextBox();
             this.dgvThemes = new System.Windows.Forms.DataGridView();
+            this.nupCapacite = new System.Windows.Forms.NumericUpDown();
             this.tabCtrlASL.SuspendLayout();
             this.tabAtelier.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAteliers)).BeginInit();
             this.tabTheme.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThemes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupCapacite)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCtrlASL
@@ -97,6 +98,7 @@
             // 
             // tabAtelier
             // 
+            this.tabAtelier.Controls.Add(this.nupCapacite);
             this.tabAtelier.Controls.Add(this.lbDateFin);
             this.tabAtelier.Controls.Add(this.lbDateDebut);
             this.tabAtelier.Controls.Add(this.btnSupprimerAtelier);
@@ -108,7 +110,6 @@
             this.tabAtelier.Controls.Add(this.lbAtelier);
             this.tabAtelier.Controls.Add(this.dgvAteliers);
             this.tabAtelier.Controls.Add(this.btnAddAtelier);
-            this.tabAtelier.Controls.Add(this.txbCapacite);
             this.tabAtelier.Controls.Add(this.dtpDateDebut);
             this.tabAtelier.Location = new System.Drawing.Point(4, 22);
             this.tabAtelier.Name = "tabAtelier";
@@ -219,14 +220,6 @@
             this.btnAddAtelier.Text = "Ajouter";
             this.btnAddAtelier.UseVisualStyleBackColor = true;
             this.btnAddAtelier.Click += new System.EventHandler(this.btnAddAtelier_Click);
-            // 
-            // txbCapacite
-            // 
-            this.txbCapacite.Location = new System.Drawing.Point(87, 95);
-            this.txbCapacite.Name = "txbCapacite";
-            this.txbCapacite.Size = new System.Drawing.Size(100, 20);
-            this.txbCapacite.TabIndex = 3;
-            this.txbCapacite.TextChanged += new System.EventHandler(this.txbCapacite_TextChanged);
             // 
             // dtpDateDebut
             // 
@@ -346,6 +339,13 @@
             this.dgvThemes.Size = new System.Drawing.Size(467, 247);
             this.dgvThemes.TabIndex = 16;
             // 
+            // nupCapacite
+            // 
+            this.nupCapacite.Location = new System.Drawing.Point(87, 95);
+            this.nupCapacite.Name = "nupCapacite";
+            this.nupCapacite.Size = new System.Drawing.Size(100, 20);
+            this.nupCapacite.TabIndex = 20;
+            // 
             // AssisesSportLorrain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,6 +362,7 @@
             this.tabTheme.ResumeLayout(false);
             this.tabTheme.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThemes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupCapacite)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -372,7 +373,6 @@
         private System.Windows.Forms.TabPage tabInscription;
         private System.Windows.Forms.TabPage tabStand;
         private System.Windows.Forms.TabPage tabAtelier;
-        private System.Windows.Forms.TextBox txbCapacite;
         private System.Windows.Forms.DateTimePicker dtpDateDebut;
         private System.Windows.Forms.Button btnAddAtelier;
         private System.Windows.Forms.DataGridView dgvAteliers;
@@ -396,6 +396,7 @@
         private System.Windows.Forms.Label lbDateFin;
         private System.Windows.Forms.Label lbDateDebut;
         private System.Windows.Forms.Label lbThemes;
+        private System.Windows.Forms.NumericUpDown nupCapacite;
     }
 }
 

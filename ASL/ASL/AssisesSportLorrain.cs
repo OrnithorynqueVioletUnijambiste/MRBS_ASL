@@ -39,7 +39,7 @@ namespace ASL
         private void btnAddAtelier_Click(object sender, EventArgs e)
         {
             string nomAtelier = txbAtelier.Text;
-            int capacite = int.Parse(txbCapacite.Text);
+            int capacite = int.Parse(nupCapacite.Text);
             DateTime horaireDebut = dtpDateDebut.Value;
             DateTime horaireFin = dtpDateFin.Value;
             Atelier atelier = new Atelier(1, nomAtelier, capacite, horaireDebut, horaireFin);
@@ -50,13 +50,18 @@ namespace ASL
             dgvAteliers.DataSource = null;
             dgvAteliers.DataSource = lesAteliers;
             dgvAteliers.AutoResizeColumns();
+
+            foreach (Atelier unAtelier in lesAteliers)
+            {
+                cbAtelierAssoc.Items.Add(unAtelier.IdAtelier + ". " + unAtelier.NomAtelier);
+            }
         }
 
         private void btnModifierAtelier_Click(object sender, EventArgs e)
         {
             int idAtelier = Convert.ToInt32(dgvAteliers.CurrentRow.Cells[0].Value);
             string nomAtelier = txbAtelier.Text;
-            int capacite = int.Parse(txbCapacite.Text);
+            int capacite = int.Parse(nupCapacite.Text);
             DateTime horaireDebut = dtpDateDebut.Value;
             DateTime horaireFin = dtpDateFin.Value;
             Atelier atelier = new Atelier(idAtelier, nomAtelier, capacite, horaireDebut, horaireFin);
@@ -67,6 +72,11 @@ namespace ASL
             dgvAteliers.DataSource = null;
             dgvAteliers.DataSource = lesAteliers;
             dgvAteliers.AutoResizeColumns();
+
+            foreach (Atelier unAtelier in lesAteliers)
+            {
+                cbAtelierAssoc.Items.Add(unAtelier.IdAtelier + ". " + unAtelier.NomAtelier);
+            }
         }
 
         private void BtnSupprimerAtelier_Click(object sender, EventArgs e)
@@ -79,6 +89,11 @@ namespace ASL
             dgvAteliers.DataSource = null;
             dgvAteliers.DataSource = lesAteliers;
             dgvAteliers.AutoResizeColumns();
+
+            foreach (Atelier unAtelier in lesAteliers)
+            {
+                cbAtelierAssoc.Items.Add(unAtelier.IdAtelier + ". " + unAtelier.NomAtelier);
+            }
         }
 
         private void dgvAteliers_CellContentClick(object sender, DataGridViewCellEventArgs e)
