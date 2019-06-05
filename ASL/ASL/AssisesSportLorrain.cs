@@ -36,6 +36,7 @@ namespace ASL
 
             foreach (Stand unStand in tousLesStands)
             {
+                //récuperation de l'id dans la base et intégration dans les champs de la combo box ( "id" . "nom" , etc) 
                 standCbx.Items.Add(unStand.IdStand + ". " + unStand.NomStand + ", " + unStand.NumAlleeStand + ", " + unStand.NumOrdreStand + " ( " + unStand.CapaciteStand + " places ) ");
 
             }
@@ -52,18 +53,25 @@ namespace ASL
 
         private void ajouterBtn_Click(object sender, EventArgs e)
         {
-            string idStand = standCbx.SelectedItem.ToString().Substring(0, standCbx.SelectedItem.ToString().IndexOf('.'));
-            string idPartenaire = partenairesCbx.SelectedItem.ToString().Substring(0, partenairesCbx.SelectedItem.ToString().IndexOf('.'));
-            DAOASL.ajouterPartenaire(idStand, idPartenaire);
-            remplirPartenaires(idStand);
+            if (standCbx.SelectedItem != null && partenairesCbx.SelectedItem != null)
+            {
+                //récuperation de l'id avec la chaîne de caractère de la combo box en coupant cette dernière  
+                string idStand = standCbx.SelectedItem.ToString().Substring(0, standCbx.SelectedItem.ToString().IndexOf('.'));
+                string idPartenaire = partenairesCbx.SelectedItem.ToString().Substring(0, partenairesCbx.SelectedItem.ToString().IndexOf('.'));
+                DAOASL.ajouterPartenaire(idStand, idPartenaire);
+                remplirPartenaires(idStand);
+            }
         }
 
         private void enleverBtn_Click(object sender, EventArgs e)
         {
-            string idStand = standCbx.SelectedItem.ToString().Substring(0, standCbx.SelectedItem.ToString().IndexOf('.'));
-            string idPartenaire = partenairesCbx.SelectedItem.ToString().Substring(0, partenairesCbx.SelectedItem.ToString().IndexOf('.'));
-            DAOASL.enleverPartenaire(idPartenaire);
-            remplirPartenaires(idStand);
+            if (standCbx.SelectedItem != null && partenairesCbx.SelectedItem != null)
+            {
+                string idStand = standCbx.SelectedItem.ToString().Substring(0, standCbx.SelectedItem.ToString().IndexOf('.'));
+                string idPartenaire = partenairesCbx.SelectedItem.ToString().Substring(0, partenairesCbx.SelectedItem.ToString().IndexOf('.'));
+                DAOASL.enleverPartenaire(idPartenaire);
+                remplirPartenaires(idStand);
+            }
         }
 
         private void tabCtrlASL_Click(object sender, EventArgs e)
