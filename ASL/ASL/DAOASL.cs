@@ -47,7 +47,6 @@ namespace ASL
             dao.excecSQLWrite(requete);
             dao.deconnexion();
         }
-
         public static void modifierAtelier(Atelier unAtelier)
         {
             string requete = "Update Atelier "
@@ -65,7 +64,9 @@ namespace ASL
         }
         public static void supprimerAtelier(int unIdAtelier)
         {
-            string requete = "Delete from Atelier "
+            string requete = "Delete from Theme "
+                           + "Where id_Atelier = " + unIdAtelier + ";"
+                           + "Delete from Atelier "
                            + "Where id = " + unIdAtelier;
             DAOFactory dao = new DAOFactory();
             dao.connexion();
@@ -128,6 +129,29 @@ namespace ASL
             dao.excecSQLWrite(requete);
             dao.deconnexion();
         }
+        #endregion
+
+        #region Logins
+
+        //public static getLogs(string username, string password)
+        //{
+        //    bool check = false;
+        //    string requete = "Select pseudo"
+        //                   + "from Utilisateur "
+        //                   + "where pseudo = '" + username + "' "
+        //                   + "and password = '" + password + "' ";
+        //    DAOFactory dao = new DAOFactory();
+        //    dao.connexion();
+        //    SqlDataReader DataReading = dao.excecSQLread(requete);
+        //    if (DataReading.Read() != null)
+        //    {
+        //        check = true;
+        //    }
+        //    dao.deconnexion();
+        //    return check;
+            
+        //}
+
         #endregion
     }
 }

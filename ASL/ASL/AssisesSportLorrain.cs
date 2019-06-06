@@ -19,6 +19,9 @@ namespace ASL
 
         private void AssisesSportLorrain_Load(object sender, EventArgs e)
         {
+            //Form Login = new Form();
+            //Form App = new Form();
+
             //Chargement DataGridView des Ateliers
             List<Atelier> lesAteliers = new List<Atelier>();
             lesAteliers = DAOASL.getAllAteliers();
@@ -44,17 +47,7 @@ namespace ASL
             DateTime horaireFin = dtpDateFin.Value;
             Atelier atelier = new Atelier(1, nomAtelier, capacite, horaireDebut, horaireFin);
             DAOASL.creerAtelier(atelier);
-
-            List<Atelier> lesAteliers = new List<Atelier>();
-            lesAteliers = DAOASL.getAllAteliers();
-            dgvAteliers.DataSource = null;
-            dgvAteliers.DataSource = lesAteliers;
-            dgvAteliers.AutoResizeColumns();
-
-            foreach (Atelier unAtelier in lesAteliers)
-            {
-                cbAtelierAssoc.Items.Add(unAtelier.IdAtelier + ". " + unAtelier.NomAtelier);
-            }
+            refreshDgvAtelier();
         }
 
         private void btnModifierAtelier_Click(object sender, EventArgs e)
@@ -66,34 +59,14 @@ namespace ASL
             DateTime horaireFin = dtpDateFin.Value;
             Atelier atelier = new Atelier(idAtelier, nomAtelier, capacite, horaireDebut, horaireFin);
             DAOASL.modifierAtelier(atelier);
-
-            List<Atelier> lesAteliers = new List<Atelier>();
-            lesAteliers = DAOASL.getAllAteliers();
-            dgvAteliers.DataSource = null;
-            dgvAteliers.DataSource = lesAteliers;
-            dgvAteliers.AutoResizeColumns();
-
-            foreach (Atelier unAtelier in lesAteliers)
-            {
-                cbAtelierAssoc.Items.Add(unAtelier.IdAtelier + ". " + unAtelier.NomAtelier);
-            }
+            refreshDgvAtelier();
         }
 
         private void BtnSupprimerAtelier_Click(object sender, EventArgs e)
         {
             int idAtelier = Convert.ToInt32(dgvAteliers.CurrentRow.Cells[0].Value);
             DAOASL.supprimerAtelier(idAtelier);
-
-            List<Atelier> lesAteliers = new List<Atelier>();
-            lesAteliers = DAOASL.getAllAteliers();
-            dgvAteliers.DataSource = null;
-            dgvAteliers.DataSource = lesAteliers;
-            dgvAteliers.AutoResizeColumns();
-
-            foreach (Atelier unAtelier in lesAteliers)
-            {
-                cbAtelierAssoc.Items.Add(unAtelier.IdAtelier + ". " + unAtelier.NomAtelier);
-            }
+            refreshDgvAtelier();
         }
 
         private void dgvAteliers_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -122,23 +95,19 @@ namespace ASL
 
         #endregion
 
-
         #region Theme
 
         private void BtnAjouterTheme_Click(object sender, EventArgs e)
         {
-            int idTheme = Convert.ToInt32(dgvThemes.CurrentRow.Cells[0].Value);
             string nomTheme = txbTheme.Text;
+
             int index = cbAtelierAssoc.SelectedItem.ToString().IndexOf('.');
             int id = int.Parse(cbAtelierAssoc.SelectedItem.ToString().Substring(0, index));
-            Theme theme = new Theme(1, nomTheme);
+
+            Theme theme = new Theme(42, nomTheme);
             DAOASL.creerTheme(theme, id);
 
-            List<Theme> lesThemes = new List<Theme>();
-            lesThemes = DAOASL.getAllTheme(id);
-            dgvThemes.DataSource = null;
-            dgvThemes.DataSource = lesThemes;
-            dgvThemes.AutoResizeColumns();
+            refreshDgvTheme(id);
         }
 
         private void BtnModifierTheme_Click(object sender, EventArgs e)
@@ -147,39 +116,29 @@ namespace ASL
             string nomTheme = txbTheme.Text;
             Theme theme = new Theme(idTheme, nomTheme);
             DAOASL.modifierTheme(theme);
+
             int index = cbAtelierAssoc.SelectedItem.ToString().IndexOf('.');
             int id = int.Parse(cbAtelierAssoc.SelectedItem.ToString().Substring(0, index));
 
-            List<Theme> lesThemes = new List<Theme>();
-            lesThemes = DAOASL.getAllTheme(id);
-            dgvThemes.DataSource = null;
-            dgvThemes.DataSource = lesThemes;
-            dgvThemes.AutoResizeColumns();
-
+            refreshDgvTheme(id);
         }
 
         private void BtnSupprimerTheme_Click(object sender, EventArgs e)
         {
             int idTheme = Convert.ToInt32(dgvThemes.CurrentRow.Cells[0].Value);
             DAOASL.supprimerTheme(idTheme);
-            List<Theme> lesThemes = new List<Theme>();
+            
             int index = cbAtelierAssoc.SelectedItem.ToString().IndexOf('.');
             int id = int.Parse(cbAtelierAssoc.SelectedItem.ToString().Substring(0, index));
-            lesThemes = DAOASL.getAllTheme(id);
-            dgvThemes.DataSource = null;
-            dgvThemes.DataSource = lesThemes;
-            dgvThemes.AutoResizeColumns();
+
+            refreshDgvTheme(id);
         }
 
         private void CbAtelierAssoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = cbAtelierAssoc.SelectedItem.ToString().IndexOf('.');
             int id = int.Parse(cbAtelierAssoc.SelectedItem.ToString().Substring(0, index));
-            List<Theme> lesThemes = new List<Theme>();
-            lesThemes = DAOASL.getAllTheme(id);
-            dgvThemes.DataSource = null;
-            dgvThemes.DataSource = lesThemes;
-            dgvThemes.AutoResizeColumns();
+            refreshDgvTheme(id);
 
         }
 
@@ -188,13 +147,39 @@ namespace ASL
 
         }
 
-
-
         private void DgvThemes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //dgvThemes.DataSource = null;
-            //dgvThemes.DataSource = DAOASL.getAllTheme(dgvAteliers.Rows[DataGridView.SelectedRow[0].Index].Cells[0].Value.ToString());
+
         }
+        #endregion
+
+        #region fonctions du turfu
+        
+        public void refreshDgvAtelier()
+        {
+            cbAtelierAssoc.Items.Clear();
+            List<Atelier> lesAteliers = new List<Atelier>();
+            lesAteliers = DAOASL.getAllAteliers();
+            dgvThemes.DataSource = null;
+            dgvAteliers.DataSource = null;
+            dgvAteliers.DataSource = lesAteliers;
+            dgvAteliers.AutoResizeColumns();
+
+            foreach (Atelier unAtelier in lesAteliers)
+            {
+                cbAtelierAssoc.Items.Add(unAtelier.IdAtelier + ". " + unAtelier.NomAtelier);
+            }
+        }
+
+        public void refreshDgvTheme(int id)
+        {
+            List<Theme> lesThemes = new List<Theme>();
+            lesThemes = DAOASL.getAllTheme(id);
+            dgvThemes.DataSource = null;
+            dgvThemes.DataSource = lesThemes;
+            dgvThemes.AutoResizeColumns();
+        }
+
         #endregion
     }
 }

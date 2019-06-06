@@ -32,6 +32,7 @@
             this.tabInscription = new System.Windows.Forms.TabPage();
             this.tabStand = new System.Windows.Forms.TabPage();
             this.tabAtelier = new System.Windows.Forms.TabPage();
+            this.nupCapacite = new System.Windows.Forms.NumericUpDown();
             this.lbDateFin = new System.Windows.Forms.Label();
             this.lbDateDebut = new System.Windows.Forms.Label();
             this.btnSupprimerAtelier = new System.Windows.Forms.Button();
@@ -55,13 +56,12 @@
             this.lbTheme = new System.Windows.Forms.Label();
             this.txbTheme = new System.Windows.Forms.TextBox();
             this.dgvThemes = new System.Windows.Forms.DataGridView();
-            this.nupCapacite = new System.Windows.Forms.NumericUpDown();
             this.tabCtrlASL.SuspendLayout();
             this.tabAtelier.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nupCapacite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAteliers)).BeginInit();
             this.tabTheme.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThemes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupCapacite)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCtrlASL
@@ -118,6 +118,13 @@
             this.tabAtelier.TabIndex = 2;
             this.tabAtelier.Text = "Gestion des Ateliers";
             this.tabAtelier.UseVisualStyleBackColor = true;
+            // 
+            // nupCapacite
+            // 
+            this.nupCapacite.Location = new System.Drawing.Point(87, 95);
+            this.nupCapacite.Name = "nupCapacite";
+            this.nupCapacite.Size = new System.Drawing.Size(100, 20);
+            this.nupCapacite.TabIndex = 20;
             // 
             // lbDateFin
             // 
@@ -291,6 +298,7 @@
             // 
             // cbAtelierAssoc
             // 
+            this.cbAtelierAssoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAtelierAssoc.FormattingEnabled = true;
             this.cbAtelierAssoc.Location = new System.Drawing.Point(381, 50);
             this.cbAtelierAssoc.Name = "cbAtelierAssoc";
@@ -339,13 +347,6 @@
             this.dgvThemes.Size = new System.Drawing.Size(467, 247);
             this.dgvThemes.TabIndex = 16;
             // 
-            // nupCapacite
-            // 
-            this.nupCapacite.Location = new System.Drawing.Point(87, 95);
-            this.nupCapacite.Name = "nupCapacite";
-            this.nupCapacite.Size = new System.Drawing.Size(100, 20);
-            this.nupCapacite.TabIndex = 20;
-            // 
             // AssisesSportLorrain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,11 +359,11 @@
             this.tabCtrlASL.ResumeLayout(false);
             this.tabAtelier.ResumeLayout(false);
             this.tabAtelier.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nupCapacite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAteliers)).EndInit();
             this.tabTheme.ResumeLayout(false);
             this.tabTheme.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThemes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupCapacite)).EndInit();
             this.ResumeLayout(false);
 
         }
