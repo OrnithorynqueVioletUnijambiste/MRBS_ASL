@@ -56,12 +56,19 @@
             this.lbTheme = new System.Windows.Forms.Label();
             this.txbTheme = new System.Windows.Forms.TextBox();
             this.dgvThemes = new System.Windows.Forms.DataGridView();
+            this.tabConnexion = new System.Windows.Forms.TabPage();
+            this.txbUsername = new System.Windows.Forms.TextBox();
+            this.txbPassword = new System.Windows.Forms.TextBox();
+            this.lbPassword = new System.Windows.Forms.Label();
+            this.lbUsername = new System.Windows.Forms.Label();
+            this.btnConnexion = new System.Windows.Forms.Button();
             this.tabCtrlASL.SuspendLayout();
             this.tabAtelier.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupCapacite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAteliers)).BeginInit();
             this.tabTheme.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThemes)).BeginInit();
+            this.tabConnexion.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCtrlASL
@@ -70,6 +77,7 @@
             this.tabCtrlASL.Controls.Add(this.tabStand);
             this.tabCtrlASL.Controls.Add(this.tabAtelier);
             this.tabCtrlASL.Controls.Add(this.tabTheme);
+            this.tabCtrlASL.Controls.Add(this.tabConnexion);
             this.tabCtrlASL.Location = new System.Drawing.Point(12, 12);
             this.tabCtrlASL.Name = "tabCtrlASL";
             this.tabCtrlASL.SelectedIndex = 0;
@@ -347,6 +355,65 @@
             this.dgvThemes.Size = new System.Drawing.Size(467, 247);
             this.dgvThemes.TabIndex = 16;
             // 
+            // tabConnexion
+            // 
+            this.tabConnexion.Controls.Add(this.txbUsername);
+            this.tabConnexion.Controls.Add(this.txbPassword);
+            this.tabConnexion.Controls.Add(this.lbPassword);
+            this.tabConnexion.Controls.Add(this.lbUsername);
+            this.tabConnexion.Controls.Add(this.btnConnexion);
+            this.tabConnexion.Location = new System.Drawing.Point(4, 22);
+            this.tabConnexion.Name = "tabConnexion";
+            this.tabConnexion.Padding = new System.Windows.Forms.Padding(3);
+            this.tabConnexion.Size = new System.Drawing.Size(628, 441);
+            this.tabConnexion.TabIndex = 4;
+            this.tabConnexion.Text = "Connexion";
+            this.tabConnexion.UseVisualStyleBackColor = true;
+            // 
+            // txbUsername
+            // 
+            this.txbUsername.Location = new System.Drawing.Point(257, 86);
+            this.txbUsername.Name = "txbUsername";
+            this.txbUsername.Size = new System.Drawing.Size(225, 20);
+            this.txbUsername.TabIndex = 4;
+            // 
+            // txbPassword
+            // 
+            this.txbPassword.Location = new System.Drawing.Point(257, 151);
+            this.txbPassword.Name = "txbPassword";
+            this.txbPassword.PasswordChar = '*';
+            this.txbPassword.Size = new System.Drawing.Size(225, 20);
+            this.txbPassword.TabIndex = 3;
+            this.txbPassword.TextChanged += new System.EventHandler(this.txbPassword_TextChanged);
+            // 
+            // lbPassword
+            // 
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.Location = new System.Drawing.Point(144, 154);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(77, 13);
+            this.lbPassword.TabIndex = 2;
+            this.lbPassword.Text = "Mot de passe :";
+            // 
+            // lbUsername
+            // 
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.Location = new System.Drawing.Point(144, 89);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Size = new System.Drawing.Size(90, 13);
+            this.lbUsername.TabIndex = 1;
+            this.lbUsername.Text = "Nom d\'utilisateur :";
+            // 
+            // btnConnexion
+            // 
+            this.btnConnexion.Location = new System.Drawing.Point(147, 244);
+            this.btnConnexion.Name = "btnConnexion";
+            this.btnConnexion.Size = new System.Drawing.Size(335, 79);
+            this.btnConnexion.TabIndex = 0;
+            this.btnConnexion.Text = "Se connecter";
+            this.btnConnexion.UseVisualStyleBackColor = true;
+            this.btnConnexion.Click += new System.EventHandler(this.btnConnexion_Click);
+            // 
             // AssisesSportLorrain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,6 +431,8 @@
             this.tabTheme.ResumeLayout(false);
             this.tabTheme.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThemes)).EndInit();
+            this.tabConnexion.ResumeLayout(false);
+            this.tabConnexion.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -398,6 +467,12 @@
         private System.Windows.Forms.Label lbDateDebut;
         private System.Windows.Forms.Label lbThemes;
         private System.Windows.Forms.NumericUpDown nupCapacite;
+        private System.Windows.Forms.TabPage tabConnexion;
+        private System.Windows.Forms.TextBox txbUsername;
+        private System.Windows.Forms.TextBox txbPassword;
+        private System.Windows.Forms.Label lbPassword;
+        private System.Windows.Forms.Label lbUsername;
+        private System.Windows.Forms.Button btnConnexion;
     }
 }
 

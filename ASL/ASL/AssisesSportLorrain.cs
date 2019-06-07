@@ -19,8 +19,12 @@ namespace ASL
 
         private void AssisesSportLorrain_Load(object sender, EventArgs e)
         {
-            //Form Login = new Form();
-            //Form App = new Form();
+
+            tabCtrlASL.TabPages.Remove(tabInscription);
+            tabCtrlASL.TabPages.Remove(tabStand);
+            tabCtrlASL.TabPages.Remove(tabAtelier);
+            tabCtrlASL.TabPages.Remove(tabTheme);
+
 
             //Chargement DataGridView des Ateliers
             List<Atelier> lesAteliers = new List<Atelier>();
@@ -181,5 +185,30 @@ namespace ASL
         }
 
         #endregion
+
+        private void txbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConnexion_Click(object sender, EventArgs e)
+        {
+            string username = txbUsername.Text;
+            string password = txbPassword.Text;
+            bool result = DAOASL.getLogs(username, password);
+            if(result == true)
+            {
+                tabCtrlASL.TabPages.Add(tabInscription);
+                tabCtrlASL.TabPages.Add(tabStand);
+                tabCtrlASL.TabPages.Add(tabAtelier);
+                tabCtrlASL.TabPages.Add(tabTheme);
+                tabCtrlASL.TabPages.Remove(tabConnexion);
+            }
+            else
+            {
+                txbUsername.Clear();
+                txbPassword.Clear();
+            }
+        }
     }
 }

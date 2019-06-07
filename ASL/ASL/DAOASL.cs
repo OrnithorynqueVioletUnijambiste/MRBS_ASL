@@ -54,7 +54,7 @@ namespace ASL
                            + "nom = '" + unAtelier.NomAtelier + "', "
                            + "capacite = " + unAtelier.Capacite + ", "
                            + "horaire_debut = '" + unAtelier.HoraireDebut + "', "
-                           + "horaire_fin = '" + unAtelier.HoraireFin + "' " 
+                           + "horaire_fin = '" + unAtelier.HoraireFin + "' "
                            + "Where id = " + unAtelier.IdAtelier;
 
             DAOFactory dao = new DAOFactory();
@@ -133,24 +133,25 @@ namespace ASL
 
         #region Logins
 
-        //public static getLogs(string username, string password)
-        //{
-        //    bool check = false;
-        //    string requete = "Select pseudo"
-        //                   + "from Utilisateur "
-        //                   + "where pseudo = '" + username + "' "
-        //                   + "and password = '" + password + "' ";
-        //    DAOFactory dao = new DAOFactory();
-        //    dao.connexion();
-        //    SqlDataReader DataReading = dao.excecSQLread(requete);
-        //    if (DataReading.Read() != null)
-        //    {
-        //        check = true;
-        //    }
-        //    dao.deconnexion();
-        //    return check;
-            
-        //}
+        public static bool getLogs(string unUsername, string unPassword)
+        {
+            string requete = "Select * from Utilisateur";
+            DAOFactory dao = new DAOFactory();
+            dao.connexion();
+            SqlDataReader DataReading = dao.excecSQLread(requete);
+            List<Utilisateur> unUtilisateur = new List<Utilisateur>();
+            while (DataReading.Read())
+            {
+                Utilisateur theUtilisateur = new Utilisateur(DataReading[1].ToString(), DataReading[2].ToString());
+                if (theUtilisateur.Username == unUsername && theUtilisateur.Password == unPassword)
+                {
+                    dao.deconnexion();
+                    return true;
+                }
+            }
+            dao.deconnexion();
+            return false; 
+        }
 
         #endregion
     }
